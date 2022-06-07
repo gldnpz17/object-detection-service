@@ -19,7 +19,8 @@ WORKDIR /app
 COPY ./obj-detect-venv/ .
 COPY requirements.txt .
 
-RUN source ./obj-detect-venv/bin/activate
 RUN pip install -r requirements.txt
+
+COPY . .
 
 CMD ["flask", "run"]
