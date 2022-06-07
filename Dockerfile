@@ -1,6 +1,4 @@
 FROM python:3.10.4
-ENV FLASK_APP=main
-ENV FLASK_ENVIRONMENT=production
 
 WORKDIR /app
 
@@ -16,11 +14,9 @@ RUN make
 
 WORKDIR /app
 
-COPY ./obj-detect-venv/ .
 COPY requirements.txt .
-
 RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["flask", "run"]
+CMD ["python", "waitress_server.py"]
