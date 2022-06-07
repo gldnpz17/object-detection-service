@@ -4,6 +4,10 @@ WORKDIR /app
 
 #RUN apt-get update
 #RUN apt-get install wget -y
+
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6  -y
+
 RUN wget -O yolov4-csp.weights "https://docs.google.com/uc?export=download&confirm=t&id=1V3vsIaxAlGWvK4Aar9bAiK5U0QFttKwq"
 
 #RUN apt-get install git -y
