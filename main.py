@@ -33,16 +33,13 @@ def get_bounding_boxes():
   else:
     file = request.files['image']
 
-    # Read the image.
     img = Image.open(file.stream)
 
-    # Convert img so that it could be processed by cv2.
     detections, width_ratio, height_ratio = darknet_helper(np.array(img), img.width, img.height)
 
     print(detections)
 
     mapped_detections = []
-    # Convert the detections to a dictionary.
     for label, confidence, bbox in detections:
       left, top, right, bottom = bbox2points(bbox)
       mapped_detections.append({
