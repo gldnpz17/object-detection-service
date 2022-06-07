@@ -11,6 +11,7 @@ RUN wget -O yolov4-csp.weights "https://docs.google.com/uc?export=download&confi
 RUN apt-get install git -y
 RUN git clone "https://github.com/AlexeyAB/darknet" darknet
 WORKDIR /app/darknet
+RUN apt-get install make -y
 RUN make
 
 WORKDIR /app
