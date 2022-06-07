@@ -14,6 +14,7 @@ RUN wget -O yolov4-csp.weights "https://docs.google.com/uc?export=download&confi
 RUN git clone "https://github.com/AlexeyAB/darknet" darknet
 WORKDIR /app/darknet
 RUN sed -i 's/LIBSO=0/LIBSO=1/' Makefile
+RUN sed -i 's/data\/coco.names/darknet\/data\/coco.names/' ./cfg/coco.data
 #RUN apt-get install make -y
 RUN make
 
