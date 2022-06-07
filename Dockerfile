@@ -5,7 +5,7 @@ ENV FLASK_ENVIRONMENT=production
 WORKDIR /app
 
 RUN apt-get update
-RUN apt-get install wget
+RUN apt-get install wget -y
 RUN wget -O yolov4-csp.weights "https://docs.google.com/uc?export=download&confirm=t&id=1V3vsIaxAlGWvK4Aar9bAiK5U0QFttKwq"
 
 RUN git clone "https://github.com/AlexeyAB/darknet" darknet
